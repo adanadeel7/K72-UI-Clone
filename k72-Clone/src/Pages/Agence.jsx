@@ -1,14 +1,62 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React,{useRef} from "react";
 
 function Agence() {
+  gsap.registerPlugin(ScrollTrigger)
+  const imageDivRef = useRef(null)
+  const imageRef = useRef(null)
+
+  const imageArray = [
+    'https://k72.ca/uploads/teamMembers/Carl_480x640-480x640.jpg',
+    'https://k72.ca/uploads/teamMembers/Olivier_480x640-480x640.jpg',
+    'https://k72.ca/uploads/teamMembers/Lawrence_480x640-480x640.jpg',
+    'https://k72.ca/uploads/teamMembers/HugoJoseph_480x640-480x640.jpg',
+    'https://k72.ca/uploads/teamMembers/ChantalG_480x640-480x640.jpg',
+    'https://k72.ca/uploads/teamMembers/MyleneS_480x640-480x640.jpg',
+    'https://k72.ca/uploads/teamMembers/SophieA_480x640-480x640.jpg',
+    'https://k72.ca/uploads/teamMembers/Claire_480x640-480x640.jpg',
+    'https://k72.ca/uploads/teamMembers/Michele_480X640-480x640.jpg',
+    'https://k72.ca/uploads/teamMembers/MEL_480X640-480x640.jpg',
+    'https://k72.ca/uploads/teamMembers/CAMILLE_480X640_2-480x640.jpg',
+    'https://k72.ca/uploads/teamMembers/MAXIME_480X640_2-480x640.jpg',
+    'https://k72.ca/uploads/teamMembers/MEGGIE_480X640_2-480x640.jpg',
+    'https://k72.ca/uploads/teamMembers/joel_480X640_3-480x640.jpg',
+  ]
+
+  
+  useGSAP(function() { 
+    gsap.to(imageDivRef.current,{
+      scrollTrigger:{
+        trigger:imageDivRef.current,
+        markers:true,
+        start:'top 20%',
+        end:'top -70%',
+        pin:true, 
+        scrub:true,
+        onUpdate: function(elem) { 
+          let imageIndex 
+          if (elem.progress < 1) {
+            imageIndex = Math.floor( elem.progress * imageArray.length)
+          } else {
+          imageIndex = imageArray.length-1
+          }
+          imageRef.current.src = imageArray[imageIndex]
+        }
+      }
+
+    })
+  })
   return (
     <div>
       <div className="section1">
-        <div className="h-[20vw] w-[15vw] top-60 absolute  overflow-hidden left-[30vw] rounded-4xl">
+        <div ref={imageDivRef} className="h-[20vw] w-[15vw] top-40 absolute  overflow-hidden left-[30vw] rounded-4xl">
           <img
             src="https://k72.ca/uploads/teamMembers/Carl_480x640-480x640.jpg"
             alt=""
             className="h-full w-full object-cover"
+            ref={imageRef}
           />
         </div>
 
@@ -34,7 +82,7 @@ function Agence() {
         </div>
       </div>
 
-      <div className="section2">
+      <div className="section2 h-screen">
 
       </div>
     </div>
