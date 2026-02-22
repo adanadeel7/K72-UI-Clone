@@ -30,10 +30,15 @@ function Agence() {
     gsap.to(imageDivRef.current,{
       scrollTrigger:{
         trigger:imageDivRef.current,
-        start:'top 20%',
+        start:'top 28%',
         end:'top -70%',
         pin:true, 
-        scrub:true,
+        pinSpacing: true,
+        pinReparent:true,
+        pinType:'transform',
+        scrub:1,
+        anticipatePin:1,
+        invalidateOnRefresh: true,
         onUpdate: function(elem) { 
           let imageIndex 
           if (elem.progress < 1) {
@@ -48,9 +53,9 @@ function Agence() {
     })
   })
   return (
-    <div>
-      <div className="section1">
-        <div ref={imageDivRef} className="h-[20vw] w-[15vw] top-40 absolute  overflow-hidden left-[30vw] rounded-4xl">
+    <div className="parent">
+      <div className="section1 py-2 relative ">
+        <div ref={imageDivRef} className="h-[20vw] w-[15vw] top-80 absolute overflow-hidden left-[30vw] rounded-3xl">
           <img
             src="https://k72.ca/uploads/teamMembers/Carl_480x640-480x640.jpg"
             alt=""
@@ -59,7 +64,7 @@ function Agence() {
           />
         </div>
 
-        <div className="relative mt-[55vh] text-white font-[font2]">
+        <div className="relative mt-[55vh] font-[font2]">
           <div className="font-[font2]">
             <h1 className="text-[19vw] text-center uppercase leading-[17vw]">
               Soixan7e <br />
@@ -89,3 +94,4 @@ function Agence() {
 }
 
 export default Agence;
+
