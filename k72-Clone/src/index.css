@@ -9,3 +9,34 @@
   src: url(../public/fonts/Lausanne-500.woff2);
 }
 
+.moveX{
+  animation-name: moveAnimation;
+  align-items: center;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  white-space: nowrap;
+  display: flex;
+  flex-shrink: 0;
+}
+
+.moveLink { 
+  opacity: 0;
+  transition: all ease 0.3s;
+  pointer-events: none;
+
+}
+
+.link:hover .moveLink{
+  opacity: 1;
+}
+
+@keyframes moveAnimation { 
+  from{
+    transform: translateX(0);
+  }
+
+  to { 
+    transform: translateX(-100%);
+  }
+}
