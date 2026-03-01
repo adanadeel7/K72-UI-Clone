@@ -9,34 +9,33 @@
   src: url(../public/fonts/Lausanne-500.woff2);
 }
 
-.moveX{
-  animation-name: moveAnimation;
-  align-items: center;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  white-space: nowrap;
-  display: flex;
-  flex-shrink: 0;
+
+
+.moveLink {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none; /* Crucial so you can still click things */
+    transition: all ease 0.3s;
+    overflow: hidden; /* Acts as the "window" */
+    display: flex;
 }
 
-.moveLink { 
-  opacity: 0;
-  transition: all ease 0.3s;
-  pointer-events: none;
-
+.moveX {
+    display: flex;
+    flex-shrink: 0; /* Prevents the text from squishing */
+    white-space: nowrap;
+    animation: moveAnimation 10s linear infinite;
 }
 
-.link:hover .moveLink{
-  opacity: 1;
+.link:hover .moveLink {
+    opacity: 1;
 }
 
-@keyframes moveAnimation { 
-  from{
-    transform: translateX(0);
-  }
-
-  to { 
-    transform: translateX(-100%);
-  }
+@keyframes moveAnimation {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
 }

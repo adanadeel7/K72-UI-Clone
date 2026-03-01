@@ -53,7 +53,7 @@ function Agence() {
     })
   })
   return (
-    <div className="parent">
+    <div className="parent bg-white">
       <div className="section1 py-2 relative ">
         <div ref={imageDivRef} className="h-[20vw] w-[15vw] top-80 absolute overflow-hidden left-[30vw] rounded-3xl">
           <img

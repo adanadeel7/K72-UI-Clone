@@ -25,7 +25,10 @@ function Navbar() {
 
             <div onMouseEnter={Greenhover} onMouseLeave={GreenHoverRemove} className='h-13 bg-black relative w-[17vw]'>
                 <div ref={navGreenRef} className='bg-[#D3FD50] transition-all absolute top-0 h-full w-full'></div>
-                <div className='relative'></div>
+                <div className='relative flex flex-col gap-1 justify-center items-end h-full px-10'>
+                    <div className="w-16 h-0.5 bg-white"></div>
+                    <div className="w-8 h-0.5 bg-white"></div>
+                </div>
             </div>
         </div>
   )
