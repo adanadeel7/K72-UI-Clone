@@ -7,6 +7,7 @@ function FullScreenNav() {
   const [navOpen,setNavOpen] = useContext(NavbarContext)
   const fullscreenRef = useRef(null)
   const NavRef = useRef(null)
+  
 
 useGSAP(() => {
     if (navOpen) {
@@ -67,7 +68,7 @@ useGSAP(() => {
     
 
   return (
-    <div ref={fullscreenRef} className=" text-white h-screen w-full fixed top-0 left-0 bg-black overflow-hidden z-[50] fullscreennav">
+    <div ref={fullscreenRef} className=" text-white h-screen w-full fixed top-0 left-0 overflow-hidden z-[50] fullscreennav">
       <div className="h-screen w-full absolute top-0 left-0 z-0 pointer-events-none">
         <div className="h-full w-full flex">
           <div className="stairing h-full w-1/5 bg-[#0f0f0f] border-r border-white/5"></div>
@@ -98,7 +99,11 @@ useGSAP(() => {
           </div>
           
           {/* Close Button */}
-          <div className="h-16 w-16 relative flex items-center justify-center cursor-pointer group">
+          <div onClick={()=> { 
+            setNavOpen(false)
+          }}
+          
+          className="h-16 w-16 relative flex items-center justify-center cursor-pointer group">
             <div className="absolute h-full w-0.5 bg-[#D3FD50] rotate-45 rounded-full"></div>
             <div className="absolute h-full w-0.5 bg-[#D3FD50] -rotate-45 rounded-full"></div>
           </div>
