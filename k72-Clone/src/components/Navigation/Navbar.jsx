@@ -1,10 +1,11 @@
 import React, { useContext, useRef } from 'react'
 import { NavbarContext } from '../Contexts/NavContexts'
 
+
 function Navbar() {
-    const navColor = "white"
     const navGreenRef = useRef(null)
-    const [navOpen,setNavOpen] = useContext(NavbarContext)
+    const [navOpen,setNavOpen,navColor] = useContext(NavbarContext)
+    
     function Greenhover() { 
         navGreenRef.current.style.height = '100%'
     }
