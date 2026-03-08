@@ -1,4 +1,5 @@
 import React from 'react'
+import ProjectsCard from '../components/projects/ProjectsCard'
 
 function Projects() {
   const projects = [{
@@ -22,10 +23,10 @@ function Projects() {
       </div>
 
       <div>
-        <div className='w-full flex gap-4 h-[700px] mb-4 bg-amber-600 -mt-10'>
-          <div className='w-1/2 h-full bg-green-900'></div>
-          <div className='w-1/2 h-full bg-blue-900'></div>
-        </div>
+        {projects.map(function (elem) { 
+          return <ProjectsCard image1={elem.image1}/>
+        })}
+        
       </div>
 
       
